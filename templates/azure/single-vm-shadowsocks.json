@@ -1,5 +1,5 @@
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "buildingBlocks": {
@@ -14,7 +14,7 @@
               ],
               "subnets": [
                 {
-                  "name": "web",
+                  "name": "vpn-proxy",
                   "addressPrefix": "10.0.1.0/24"
                 }
               ]
@@ -29,19 +29,8 @@
               "securityRules": [
                 {
                   "name": "SSH"
-                },
-                {
-                  "name": "allow-proxy",
-                  "protocol": "udp",
-                  "sourcePortRange": "*",
-                  "destinationPortRange": "8388",
-                  "sourceAddressPrefix": "*",
-                  "destinationAddressPrefix": "*",
-                  "access": "Allow",
-                  "priority": 110,
-                  "direction": "Inbound"
-              }
-              ],
+                }
+               ],
               "virtualNetworks": [
                 {
                   "name": "ra-single-linux-vm-vnet",
@@ -58,8 +47,8 @@
           "settings": {
             "vmCount": 1,
             "namePrefix": "ra-single-linux",
-            "computerNamePrefix": "web",
-            "size": "Basic_A0",
+            "computerNamePrefix": "shadowsock0",
+            "size": "Standard_A0",
             "adminUsername": "linux-admin",
             "adminPassword": "Mont2018Test123",
             "virtualNetwork": {
@@ -68,12 +57,12 @@
             "nics": [
               {
                 "isPublic": true,
-                "subnetName": "web"
+                "subnetName": "vpn"
               }
             ],
             "osType": "linux",
             "dataDisks": {
-              "count": 2
+              "count": 1
             }
           }
         },
