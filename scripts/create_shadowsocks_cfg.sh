@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ip=`ifconfig eth0 |grep -e 'inet addr:'|awk '{FS=":";print $2}'| sed 's/addr://g'`
+passwd="GoTest2018"
+
 echo ="
 {
     \"server\":"\"$ip"\",
