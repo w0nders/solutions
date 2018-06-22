@@ -20,7 +20,7 @@ echo ="
     \"method\":\"aes-256-cfb\",
     \"fast_open\": false,
     \"workers\": 1
-}" > /etc/shadowsocks-libev/config.json
+}" > /etc/shadowsocks/config.json
 
 apachectl restart
 sudo systemctl enable shadowsocks-libev
