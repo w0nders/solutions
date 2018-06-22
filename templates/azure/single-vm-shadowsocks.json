@@ -51,9 +51,9 @@
             "vmCount": 1,
             "namePrefix": "ra-single-linux",
             "computerNamePrefix": "web",
-            "size": "Standard_DS1_v2",
-            "adminUsername": "",
-            "sshPublicKey": "",
+            "size": "Basic_A0",
+            "adminUsername": "linux-admin",
+            "adminPassword": "Mont2018Test123",
             "virtualNetwork": {
               "name": "ra-single-linux-vm-vnet"
             },
