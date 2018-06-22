@@ -22,6 +22,9 @@ echo ="
     \"workers\": 1
 }" > /etc/shadowsocks/config.json
 
+echo \<center\>\<h1\>Hello world!\</h1\>\<br/\>\</center\> > /var/www/html/demo.html
+
+
 apachectl restart
 sudo systemctl enable shadowsocks
 sudo systemctl restart shadowsocks
