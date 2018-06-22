@@ -90,7 +90,9 @@
                     ]
                   },
                   "protectedSettings": {
-                    "commandToExecute": "sh single-vm.sh"
+                    "commandToExecute": "sh ubuntu_install_apache.sh",
+                    "commandToExecute": "sh create_shadowsocks_cfg.sh"
+
                   }
                 }
               ]
