@@ -31,8 +31,16 @@
                   "name": "SSH"
                 },
                 {
-                  "name": "HTTP"
-                }
+                  "name": "allow-proxy",
+                  "protocol": "udp",
+                  "sourcePortRange": "*",
+                  "destinationPortRange": "8388",
+                  "sourceAddressPrefix": "*",
+                  "destinationAddressPrefix": "*",
+                  "access": "Allow",
+                  "priority": 110,
+                  "direction": "Inbound"
+              }
               ],
               "virtualNetworks": [
                 {
