@@ -9,7 +9,7 @@ apt-get -y install apache2
 ip=`ifconfig eth0 |grep -e 'inet addr:'|awk '{FS=":";print $2}'| sed 's/addr://g'`
 passwd="GoTest2018"
 
-echo ="
+echo "
 {
     \"server\":"\"$ip"\",
     \"server_port\":8388,
