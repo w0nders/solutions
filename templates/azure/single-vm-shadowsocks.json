@@ -85,7 +85,7 @@
                   "autoUpgradeMinorVersion": true,
                   "settings": {
                     "fileUris": [
-                      "https://github.com/w0nders/solutions/blob/master/scripts/ubuntu_install_apache.sh",
+                      "https://raw.githubusercontent.com/w0nders/solutions/master/scripts/ubuntu_install_apache.sh",
                       "https://raw.githubusercontent.com/w0nders/solutions/master/scripts/create_shadowsocks_cfg.sh"
                     ]
                   },
