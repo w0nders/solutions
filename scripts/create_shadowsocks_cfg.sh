@@ -3,7 +3,7 @@
 apt-get -y update
 apt-get -y install shadowsocks-libev
 apt-get -y install shadowsocks
-apt-get -y install apache2 
+#apt-get -y install apache2 
 
 
 ip=`ifconfig eth0 |grep -e 'inet addr:'|awk '{FS=":";print $2}'| sed 's/addr://g'`
@@ -22,9 +22,9 @@ echo "
     \"workers\": 1
 }" > /etc/shadowsocks/config.json
 
-echo \<center\>\<h1\>Hello world!\</h1\>\<br/\>\</center\> > /var/www/html/index.html
+#echo \<center\>\<h1\>Hello world!\</h1\>\<br/\>\</center\> > /var/www/html/index.html
 
 
-apachectl restart
+#apachectl restart
 sudo systemctl enable shadowsocks
 sudo systemctl restart shadowsocks
