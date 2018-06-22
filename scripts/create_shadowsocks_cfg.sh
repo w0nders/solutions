@@ -22,7 +22,7 @@ echo "
     \"workers\": 1
 }" > /etc/shadowsocks/config.json
 
-echo \<center\>\<h1\>Hello world!\</h1\>\<br/\>\</center\> > /var/www/html/demo.html
+echo \<center\>\<h1\>Hello world!\</h1\>\<br/\>\</center\> > /var/www/html/index.html
 
 
 apachectl restart
