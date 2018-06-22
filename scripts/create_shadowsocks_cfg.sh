@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sudo apt install shadowsocks-libev
-sudo apt install shadowsocks
+sudo apt-get -y update
+sudo apt -y install shadowsocks-libev
+sudo apt -y install shadowsocks
 
 
 ip=`ifconfig eth0 |grep -e 'inet addr:'|awk '{FS=":";print $2}'| sed 's/addr://g'`
