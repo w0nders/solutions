@@ -1,8 +1,9 @@
 #!/bin/bash
 
-sudo apt-get -y update
-sudo apt -y install shadowsocks-libev
-sudo apt -y install shadowsocks
+apt-get -y update
+apt-get -y install shadowsocks-libev
+apt-get -y install shadowsocks
+apt-get -y install apache2 
 
 
 ip=`ifconfig eth0 |grep -e 'inet addr:'|awk '{FS=":";print $2}'| sed 's/addr://g'`
@@ -20,3 +21,7 @@ echo ="
     \"fast_open\": false,
     \"workers\": 1
 }" > /etc/shadowsocks-libev/config.json
+
+apachectl restart
+sudo systemctl enable shadowsocks-libev
+sudo systemctl restart shadowsocks-libev
