@@ -23,5 +23,5 @@ echo ="
 }" > /etc/shadowsocks/config.json
 
 apachectl restart
-sudo systemctl enable shadowsocks-libev
-sudo systemctl restart shadowsocks-libev
+sudo systemctl enable shadowsocks
+sudo systemctl restart shadowsocks
