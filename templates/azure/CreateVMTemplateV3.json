@@ -7,7 +7,7 @@
             "maxLength": 16,
             "defaultValue":"newVM",
             "metadata":{
-                "description": "default value"
+                "description": "default"
             }
         }
     },
@@ -45,7 +45,56 @@
                         }
                     }
                 ]
-            }
+            },
+
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_linux_srv1_nsg_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "c40be6bb-f630-4b51-a509-86afc3914229",
+                "securityRules": [
+                    {
+                        "name": "default-allow-ssh",
+                        "etag": "W/\"ccaae4b0-e497-4628-a2c7-5e1e5ad2d4cd\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Shadowsocks",
+                        "etag": "W/\"ccaae4b0-e497-4628-a2c7-5e1e5ad2d4cd\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8388",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1010,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    } 
+                ]
         },
         {
             "apiVersion": "2016-03-30",
@@ -109,38 +158,9 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
                         }
                     ]
-                },
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('vmName')]",
-            "apiVersion": "2018-02-01",
-            "location": "westeurope",
-            "scale": null,
-            "properties": {
-                //"provisioningState": "Succeeded",
-                //"resourceGuid": "c40be6bb-f630-4b51-a509-86afc3914229",
-                "securityRules": [
-                    {
-                        "name": "[parameters('vmName')]",
-                        "etag": "tag-[parameters('vmName')]",
-                        "properties": {
-                            "protocol": "*",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "8388",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 1010,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    }
-                    }
-                ]
+                }
             }
-        }
+        },
        {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/hello')]",
