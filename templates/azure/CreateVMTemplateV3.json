@@ -46,7 +46,6 @@
                     }
                 ]
             },
-
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroups_linux_srv1_nsg_name')]",
             "apiVersion": "2018-02-01",
@@ -60,7 +59,7 @@
                         "name": "default-allow-ssh",
                         "etag": "W/\"ccaae4b0-e497-4628-a2c7-5e1e5ad2d4cd\"",
                         "properties": {
-                            "provisioningState": "Succeeded",
+                            //"provisioningState": "Succeeded",
                             "protocol": "TCP",
                             "sourcePortRange": "*",
                             "destinationPortRange": "22",
@@ -79,7 +78,7 @@
                         "name": "Shadowsocks",
                         "etag": "W/\"ccaae4b0-e497-4628-a2c7-5e1e5ad2d4cd\"",
                         "properties": {
-                            "provisioningState": "Succeeded",
+                            //"provisioningState": "Succeeded",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "8388",
