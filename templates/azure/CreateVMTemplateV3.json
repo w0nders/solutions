@@ -3,7 +3,12 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 16,
+            "defaultValue":"newVM",
+            "metadata":{
+                "description": "default value"
+            }
         }
     },
     "variables": {
