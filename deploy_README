@@ -1,0 +1,10 @@
+# PowerShell
+Connect-AzureRmAccount
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
+
+# Azure CLI
+
+az login
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json
