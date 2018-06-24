@@ -109,9 +109,38 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
                         }
                     ]
-                }
+                },
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('vmName')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                //"provisioningState": "Succeeded",
+                //"resourceGuid": "c40be6bb-f630-4b51-a509-86afc3914229",
+                "securityRules": [
+                    {
+                        "name": "[parameters('vmName')]",
+                        "etag": "tag-[parameters('vmName')]",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8388",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1010,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                    }
+                ]
             }
-        },
+        }
        {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/hello')]",
