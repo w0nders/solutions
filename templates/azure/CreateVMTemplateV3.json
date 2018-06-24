@@ -78,7 +78,7 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Basis_A0"
+                    "vmSize": "Basic_A0"
                 },
                 "osProfile": {
                     "computerName": "MyVM",
