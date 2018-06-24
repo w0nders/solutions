@@ -47,7 +47,7 @@
           "settings": {
             "vmCount": 1,
             "namePrefix": "ra-single-linux",
-            "computerNamePrefix": "shadowsock0",
+            "computerNamePrefix": "newVM",
             "size": "Standard_A0",
             "adminUsername": "linux-admin",
             "adminPassword": "Mont2018Test123",
