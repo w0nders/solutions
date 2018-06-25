@@ -85,7 +85,7 @@
                         {
                         "name": "default-allow-ssh",
                         "properties": {
-                            "provisioningState": "Succeeded",
+                            
                             "description": "Allow SSH",
                             "protocol": "Tcp",
                             "sourcePortRange": "*",
@@ -93,7 +93,7 @@
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
-                            "priority": 150,
+                            "priority": 100,
                             "direction": "Inbound",
                             "sourcePortRanges": [],
                             "destinationPortRanges": [],
