@@ -2,23 +2,25 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "networkSecurityGroups_test_nsg_name": {
-            "defaultValue": "test-nsg",
+        "networkSecurityGroups_nsg_test_1_name": {
+            "defaultValue": "nsg-test-1",
             "type": "String"
         }
     },
     "variables": {},
     "resources": [
         {
+            "comments": "Generalized from resource: '/subscriptions/4d0b9fb4-d1ec-495f-aec6-8d6912f37273/resourceGroups/nsg-test2/providers/Microsoft.Network/networkSecurityGroups/nsg-test-1'.",
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('networkSecurityGroups_test_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_nsg_test_1_name')]",
             "apiVersion": "2018-02-01",
             "location": "westeurope",
+            "scale": null,
             "properties": {
+                "securityRules": [],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -38,7 +40,6 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -58,7 +59,6 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -78,7 +78,6 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -98,7 +97,6 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -118,8 +116,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"89dbc771-5408-4dbd-a9a5-653cf0ece7d9\"",
-                        "properties": {
+                       "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
                             "protocol": "*",
