@@ -21,12 +21,12 @@
                     {
                         "name": "SSH",
                         "properties": {   
-                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "description": "Allow inbound SSH traffic from all",
                             "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "22",
-                            "sourceAddressPrefix": "VirtualNetwork",
-                            "destinationAddressPrefix": "VirtualNetwork",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 100,
                             "direction": "Inbound",
