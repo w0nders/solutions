@@ -2,46 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "FENSGName": {
-                "type": "string",
-                "defaultValue": "FE_NSG",
-                "metadata": {
-                "description": "This is name of the networkSecurityGroup that will be assigned to FrontEnd Subnet"
-                }         
-            }
+        "networkSecurityGroupName": {
+            "type": "String"
         },
-    "variables": 
-         {
-           },
+        "location": {
+            "type": "String"
+        }
+    },
     "resources": [
-           {   
+        {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('FENSGName')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "westeurope",
-            "scale": null,
-            "properties": {
-                         "securityRules": [
-                            {
-                            "name": "allow-ssh",
-                            "properties": {
-                            "protocol": "Tcp",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "22",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 100,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    }                                  
-                ]
-            }   
+            "name": "[parameters('networkSecurityGroupName')]",
+            "apiVersion": "2015-06-15",
+            "location": "[parameters('location')]",
+            "properties": {}
         }
     ]
 }
-    
