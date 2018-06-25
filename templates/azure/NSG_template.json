@@ -2,17 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "networkSecurityGroups_nsg_test_1_name": {
-            "defaultValue": "nsg-test-1",
-            "type": "string"
+        "networkSecurityGroups_NSG_TST_name": {
+            "defaultValue": "NSG_TST",
+            "type": "String"
         }
     },
     "variables": {},
     "resources": [
         {
-            "comments": "Generalized from resource: '/subscriptions/4d0b9fb4-d1ec-495f-aec6-8d6912f37273/resourceGroups/nsg-test2/providers/Microsoft.Network/networkSecurityGroups/nsg-test-1'.",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "nsg_test_1_name",
+           "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_NSG_TST_name')]",
             "apiVersion": "2018-02-01",
             "location": "westeurope",
             "scale": null,
@@ -20,17 +19,16 @@
                 "securityRules": [],
                 "defaultSecurityRules": [
                     {
-                        "name": "AllowVnetInBound",
-                        "properties": {
-                            "provisioningState": "Succeeded",
+                        "name": "SSH",
+                        "properties": {   
                             "description": "Allow inbound traffic from all VMs in VNET",
-                            "protocol": "*",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
-                            "destinationPortRange": "*",
+                            "destinationPortRange": "22",
                             "sourceAddressPrefix": "VirtualNetwork",
                             "destinationAddressPrefix": "VirtualNetwork",
                             "access": "Allow",
-                            "priority": 65000,
+                            "priority": 100,
                             "direction": "Inbound",
                             "sourcePortRanges": [],
                             "destinationPortRanges": [],
@@ -41,7 +39,6 @@
                     {
                         "name": "AllowAzureLoadBalancerInBound",
                         "properties": {
-                            "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -60,7 +57,6 @@
                     {
                         "name": "DenyAllInBound",
                         "properties": {
-                            "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -79,7 +75,6 @@
                     {
                         "name": "AllowVnetOutBound",
                         "properties": {
-                            "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -98,7 +93,6 @@
                     {
                         "name": "AllowInternetOutBound",
                         "properties": {
-                            "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -116,8 +110,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                       "properties": {
-                            "provisioningState": "Succeeded",
+                        "properties": {
                             "description": "Deny all outbound traffic",
                             "protocol": "*",
                             "sourcePortRange": "*",
