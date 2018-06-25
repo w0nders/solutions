@@ -22,7 +22,7 @@
             "properties": {
                          "securityRules": [
                     {
-                            "name": "default-allow-ssh",
+                            "name": "allow-ssh22222",
                             "properties": {
                             "protocol": "Tcp",
                             "sourcePortRange": "*",
