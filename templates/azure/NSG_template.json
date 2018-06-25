@@ -1,0 +1,54 @@
+{
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string",
+            "maxLength": 16,
+            "defaultValue":"newVM",
+            "metadata":{
+                "description": "test description"
+            }
+        },
+        "nsg_cfg":{
+         "type":"string",
+          "defaultValue": "NSG_VM"    
+        }
+    },
+    "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]",
+        "vmName" : "[parameters('vmName')]"
+    },
+    "resources": [
+           {   
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('nsg_cfg')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                         "securityRules": [
+                    {
+                            "name": "default-allow-ssh",
+                            "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }                                  
+                ]
+            }   
+        }
+    ]
+}
+    

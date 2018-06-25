@@ -1,0 +1,2 @@
+New-AzureRmResourceGroup -Name test111 -Location "westeurope"
+New-AzureRmResourceGroupDeployment -ResourceGroupName test111 -TemplateFile C:\Users\alnovikov\Documents\CreateVMTemplate.json
