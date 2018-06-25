@@ -1,19 +1,11 @@
 {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmName": {
-            "type": "string",
-            "maxLength": 16,
-            "defaultValue":"newVM",
-            "metadata":{
-                "description": "test description"
-            }
-        },
         "nsg_cfg":{
-         "type":"string",
-          "defaultValue": "NSG_VM"    
-        }
+        "type":"string",
+        "defaultValue": "NSG_VM"    
+            }
     },
     "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]",
