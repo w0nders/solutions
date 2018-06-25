@@ -11,7 +11,7 @@
     "resources": [
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "name": "[concat(parameters('networkSecurityGroups_NSG_TST_name'), '/', parameters('securityRules_SSH_ALLOW_name'))]",
+            "name": "SSH_ALLOW",
             "apiVersion": "2018-02-01",
             "scale": null,
             "properties": {
