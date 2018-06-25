@@ -8,14 +8,11 @@
             }
     },
     "variables": {
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]",
-        "vmName" : "[parameters('vmName')]"
-    },
+           },
     "resources": [
            {   
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('nsg_cfg')]",
+            "name": "test-nsg2",
             "apiVersion": "2018-02-01",
             "location": "westeurope",
             "scale": null,
