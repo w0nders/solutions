@@ -2,23 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmName": {
-            "type": "string",
-            "maxLength": 16,
-            "defaultValue":"newVM",
-            "metadata":{
-                "description": "test description"
-            }
-        }
-    },
+          },
     "variables": {
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]",
-        "vmName" : "[parameters('vmName')]"
-    },
+            },
     "resources": [
     {
-            "comments": "Generalized from resource: '/subscriptions/721b9c96-45a2-4621-afdc-c6c22ed5a094/resourceGroups/Linux-SRV/providers/Microsoft.Network/publicIPAddresses/ExtIP'.",
             "type": "Microsoft.Network/publicIPAddresses",
             "sku": {
                 "name": "Basic",
@@ -29,15 +17,9 @@
             "location": "westeurope",
             "scale": null,
             "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "f1e17897-0770-45d5-b34e-1bb0dc1267e4",
                 "publicIPAddressVersion": "IPv4",
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
-                "dnsSettings": {
-                    "domainNameLabel": "shadowsocks-vpn",
-                    "fqdn": "shadowsocks-vpn.westeurope.cloudapp.azure.com"
-                },
                 "ipTags": []
             },
             "dependsOn": []
