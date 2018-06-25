@@ -73,6 +73,37 @@
                 ]
             }
         },
+            {
+                "type": "Microsoft.Network/networkSecurityGroups",
+                "name": "nsg_test_1_name",
+                "apiVersion": "2018-02-01",
+                "location": "westeurope",
+                "scale": null,
+                "properties": {
+                    "securityRules": [],
+                    "defaultSecurityRules": [
+                        {
+                        "name": "default-allow-ssh",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow SSH",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 150,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                            }
+                        }
+                    ]
+                }
+            },
         {
             "apiVersion": "2016-04-30-preview",
             "type": "Microsoft.Compute/virtualMachines",
