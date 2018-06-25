@@ -2,20 +2,28 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-         },
-    "variables": {
+        "FENSGName": {
+                "type": "string",
+                "defaultValue": "FE_NSG",
+                "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to FrontEnd Subnet"
+                }         
+            }
+        },
+    "variables": 
+         {
            },
     "resources": [
            {   
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "test-nsg2",
+            "name": "[parameters('FENSGName')]",
             "apiVersion": "2018-02-01",
             "location": "westeurope",
             "scale": null,
             "properties": {
                          "securityRules": [
-                    {
-                            "name": "allow-ssh22222",
+                            {
+                            "name": "allow-ssh",
                             "properties": {
                             "protocol": "Tcp",
                             "sourcePortRange": "*",
