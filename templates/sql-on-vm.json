@@ -32,6 +32,7 @@
     },
     "existingSubnetName": {
       "type": "String",
+      "defaultValue": "db",
       "metadata": {
         "description": "Specify the name of the Subnet Name"
       }
